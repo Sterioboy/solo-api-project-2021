@@ -1,0 +1,44 @@
+<main>
+  <section id="survey_block" class="my-3">
+    <p class="fs-3 text-center">Please, answer these questions in order to generate your
+      Terminal Page.</p>
+    <div class="row d-flex justify-content-center">
+      <form class="col-lg-4" action="/survey" method="POST">
+        <!-- Trading Experience -->
+        <div class="mb-3">
+          <label for="experienceInput" class="form-label">How long have you been
+            investing?</label>
+          <select name="experienceInput" id="experienceInput" class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="false">>= 1 Year</option>
+            <option value="true">1-4 Years</option>
+            <option value="true">4+ Years</option>
+          </select>
+        </div>
+
+        <!-- Primary Market -->
+        <div class="mb-3">
+          <label for="primaryMarketInput" class="form-label">What is your Primary Market?</label>
+          <select name="primaryMarketInput" id="primaryMarketInput" class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="ForEx">ForEx</option>
+            <option value="Stock Market">Stock Market</option>
+            <option value="Cryptocurrencies">Cryptocurrencies</option>
+          </select>
+        </div>
+
+        <!-- Trading Style -->
+        <div class="mb-3">
+          <label for="tradingStyleInput" class="form-label">What is your Trading Style?</label>
+          <select name="tradingStyleInput" id="tradingStyleInput" class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="Short-term Speculations">Short-term Speculations</option>
+            <option value="Mid-term Speculations">Mid-term Speculations</option>
+            <option value="Investments">Investments</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  </section>
+</main>

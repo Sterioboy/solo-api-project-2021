@@ -1,0 +1,104 @@
+<main>
+  {{#if default}}
+    <p class="m-5"></p>
+  {{else}}
+    <p class="m-5">To Be Filled with Terminal</p>
+    <section id="terminal">
+      <div class="row p-2" id="row-1">
+        <!-- Market Data -->
+        <div id="assets_table" class="col-lg-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="p-2" scope="col">#</th>
+                <th class="p-2" scope="col">Symbol</th>
+                <th class="p-2" scope="col">Open</th>
+                <th class="p-2" scope="col">High</th>
+                <th class="p-2" scope="col">Low</th>
+                <th class="p-2" scope="col">Volume</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="p-2" scope="row">1</th>
+                <td class="p-2 link-primary">{{symbol}}</td>
+                <td class="p-2 link-secondary">{{open}}</td>
+                <td class="p-2 link-success">{{high}}</td>
+                <td class="p-2 link-danger">{{low}}</td>
+                <td class="p-2 link-info">{{volume}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="/expandData" class="btn btn-outline-info" id="expandData">
+            More Data
+          </a>
+        </div>
+        <!-- Choose Market -->
+        <div id="assets_form" class="col-lg-6">
+          <form action="/changeMarket" method="POST">
+            <!-- Primary Market -->
+            <div class="mb-3">
+              <label for="primaryMarketInput" class="form-label">Change Primary
+                Market</label>
+              <select
+                name="primaryMarketInput"
+                id="primaryMarketInput"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected>Open this select menu</option>
+                <option value="ForEx">ForEx</option>
+                <option value="Stock Market">Stock Market</option>
+                <option value="Cryptocurrencies">Cryptocurrencies</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div id="tradingview_chart">
+          <!-- TradingView Widget BEGIN -->
+          <div class="tradingview-widget-container">
+            <div id="tradingview_95d53"></div>
+            <div class="tradingview-widget-copyright"><a
+                href="https://www.tradingview.com/"
+                rel="noopener"
+                target="_blank"
+              ><span class="blue-text" id="tv_symbol">{{symbol}}</span><span
+                  class="blue-text"
+                  id="tv_exchange"
+                >{{exchange}}</span></a>
+              by TradingView</div>
+            <script
+              type="text/javascript"
+              src="https://s3.tradingview.com/tv.js"
+            ></script>
+            <script type="text/javascript">
+              const symbol = document.getElementById("tv_symbol").innerText;
+              const exchange = document.getElementById("tv_exchange").innerText;
+              new TradingView.widget( { "width": 980, "height": 610, "symbol":
+              `${exchange}:${symbol}`, "interval": "D", "timezone": "Etc/UTC",
+              "theme": "dark", "style": "0", "locale": "en", "toolbar_bg":
+              "#f1f3f6", "enable_publishing": false, "hide_legend": true,
+              "hide_side_toolbar": false, "allow_symbol_change": true,
+              "save_image": false, "container_id": "tradingview_95d53" } );
+            </script>
+          </div>
+          <!-- TradingView Widget END -->
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 text-center">
+            <p class="hvr-wobble-horizontal">Developed by
+              <a href="https://k-sterio.com/" target="_blank">Kirill Bondarenko</a>
+              2021</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  {{/if}}
+</main>
